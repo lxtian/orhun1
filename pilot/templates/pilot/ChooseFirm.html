@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Choose Firm
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <input type="hidden" name="time_ChooseFirm" id="arrive_time"/>
+            <input type="hidden" name="switch" id="switch_form"/>
+            <p>
+                If you choose firm A, you and the other members of your group
+                (your opponents) will be able to see each other's baseline scores. If you choose
+                firm B, each of you will only be able to see your own baseline score.
+            </p>
+
+            <p id="choose">
+                Choose your firm. <br>
+                <input id="A" type="radio" name="firm" value="A"/> A <br>
+                <input id="B" type="radio" name="firm" value="B"/> B <br>
+            </p>
+
+            <br>
+            <p>
+                Please make your choice in a timely manner. If you do not submit your answer within 2 minutes, you will not be allowed to participate in the remainder of the study.
+            </p>
+
+        </body>
+    </html>
+
+    <div id="next">
+        <button class="btn btn-primary btn-large next-button" style="float: right;">Next</button>
+    </div>
+
+    </script>
+
+{% endblock %}
+
+{% comment %}
+ 
+{% endcomment %}
