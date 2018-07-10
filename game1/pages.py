@@ -58,15 +58,8 @@ class Instructions1(Page):
             'firm': self.player.participant.vars['firm'],
             'baseline': self.player.participant.vars['baseline_score'],
             'opponent1': opponent1.participant.vars['baseline_score'],
-            'opponent2': opponent2.participant.vars['baseline_score'],
-            'id' : you
+            'opponent2': opponent2.participant.vars['baseline_score']
         }
-
-    def get_form_fields(self):
-        if self.player.id_in_group == 1:
-            return ['q6']
-        else:
-            return []
 
 # game 1 task
 class Game1(Page):
@@ -129,6 +122,18 @@ class Results1(Page):
             'problems': inflect.engine().plural('problem', self.player.attempted)
         }
 
+class Survey_group(Page):
+    form_model = 'player'
+    timeout_seconds = 60
+    
+    def is_displayed(self):
+        return self.player.id_in_group == 1
+    def get_form_fields(self):
+        if self.player.id_in_group == 1:
+            return ['q6']
+        else:
+            return []
+
 # class Survey2(Page):
 #     form_model = 'player'
 #     form_fields = ['time_Survey2', 'q2', 'q3']
@@ -158,6 +163,7 @@ page_sequence = [
     Game1WaitPage,
     ChooseFirm,
     #Survey4,
+    Survey_group,
     Instructions1WaitPage,
     Instructions1,
     #Survey2,

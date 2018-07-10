@@ -30,12 +30,19 @@ class Baseline(Page):
         self.player.participant.vars['baseline_attempted'] = self.player.attempted
         self.player.participant.vars['baseline_score'] = self.player.baseline_score
 
+class ResultsWaitPage(WaitPage):
+    def after_all_players_arrive(self):
+        group = self.group
+        players = group.get_players()
+        for p in players:
+            p.payoff = c(p.baseline_score * 0.05)
+
 # baseline results
 class ResultsBL(Page):
     form_model = 'player'
     form_fields = ['time_ResultsBL']
     timeout_seconds = 60
-    
+
     # variables that will be passed to the html and can be referenced from html or js
     def vars_for_template(self):
         return {
@@ -68,6 +75,7 @@ class ChooseFirm(Page):
 page_sequence = [
     Instructions,
     Baseline,
+    ResultsWaitPage,
     ResultsBL,
     Survey1,
     ChooseFirm

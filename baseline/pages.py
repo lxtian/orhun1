@@ -13,7 +13,7 @@ class Instructions(Page):
 # baseline task
 class Baseline(Page):
     form_model = 'player'
-    form_fields = ['baseline_score', 'attempted', 'time_Baseline']
+    form_fields = ['baseline_score', 'attempted', 'time_Baseline', 'credit']
 
     # timer until page automatically submits itself
     timeout_seconds = settings.SESSION_CONFIGS[0]['time_limit']
@@ -29,6 +29,7 @@ class Baseline(Page):
     def before_next_page(self):
         self.player.participant.vars['baseline_attempted'] = self.player.attempted
         self.player.participant.vars['baseline_score'] = self.player.baseline_score
+        self.player.participant.vars['credit'] = self.player.credit
 
 # baseline results
 class ResultsBL(Page):

@@ -34,6 +34,7 @@
                 var answer = current[1]
                 if(submitted == answer) {
                     correct++
+                    document.getElementById('credit').value += 0.05
                 }
                 next()
             }
@@ -61,6 +62,7 @@
             <input type="hidden" name="time_Baseline" id="arrive_time"/>
             <input type="hidden" name="baseline_score" id="correct">
             <input type="hidden" name="attempted" id="attempted">
+            <input type="hidden" name="credit" id="credit">
             <div>
                 <div>
                     <p id="problem">

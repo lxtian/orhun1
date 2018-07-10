@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        window.onload = function () 
+        {
+            document.getElementById("arrive_time").value = (new Date()).toISOString()
+        }
+
+        
+
+    </script>
+{% endblock %}
+
+{% block title %}
+    Survey
+{% endblock %}
+
+{% block content %}
+    <br>
+        Why did you choose this firm?
+    <br>
+    <textarea name="q6" cols="40" rows="10" required="true"></textarea>
+    {% next_button %}
+
+{% endblock %}

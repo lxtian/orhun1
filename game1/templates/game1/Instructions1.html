@@ -29,7 +29,11 @@
         <body>
             <input type="hidden" name="time_Instructions1" id="arrive_time"/>
             <p>
-                In this task, you will...
+                {% if firm == 'A' %}
+                    You are playing in Firm A. You will see the baseline scores for the 2 randomly chosen players in your group.
+                {% else %}
+                    You are playing in Firm B. You will not see the baseline scores for the 2 randomly chosen players in your group.
+                {% endif %}
                 <br><br>
                 Your firm: {{ firm }}.
                 <br>
@@ -43,13 +47,6 @@
                 <br><br>
                 Good luck!
             </p>
-
-            {% if id == 1 %}
-            <br>
-                Why did you choose this firm?
-            <br>
-            <textarea name="q6" cols="40" rows="10" required="true"></textarea>
-            {% endif %}
         </body>
     </html>
 
