@@ -27,15 +27,9 @@ class Baseline(Page):
     # is called after the timer runs out and this page's forms are submitted
     # sets the participant.vars to transfer to next round
     def before_next_page(self):
+        self.player.participant.payoff = self.player.baseline_score * 0.05
         self.player.participant.vars['baseline_attempted'] = self.player.attempted
         self.player.participant.vars['baseline_score'] = self.player.baseline_score
-
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
-        group = self.group
-        players = group.get_players()
-        for p in players:
-            p.payoff = c(p.baseline_score * 0.05)
 
 # baseline results
 class ResultsBL(Page):
@@ -75,7 +69,6 @@ class ChooseFirm(Page):
 page_sequence = [
     Instructions,
     Baseline,
-    ResultsWaitPage,
     ResultsBL,
     Survey1,
     ChooseFirm
