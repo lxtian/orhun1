@@ -114,5 +114,3 @@ SECRET_KEY = 'f8ho&pte=i&(vr-z0@2dw(z=4z&sg^o=30tjt)$v=lhd3j0dl*'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
-AWS_ACCESS_KEY_ID = 'AKIAJOH3PS44AUQX5SKA'
-AWS_SECRET_ACCESS_KEY = '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'
