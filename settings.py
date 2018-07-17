@@ -65,10 +65,12 @@ SESSION_CONFIGS = [
     {
        'name': 'pilot',
        'display_name': 'pilot',
-       'num_demo_participants': 1,
-       'app_sequence': ['pilot'],
+       'num_demo_participants': 6,
+       'app_sequence': ['baseline', 'waitpage', 'game1'],
        'lower_bound': 0,
-       'upper_bound': 10
+       'upper_bound': 25,
+       'min_players': 6,
+       'time_limit': 5
     },
 ]
 
@@ -112,3 +114,5 @@ SECRET_KEY = 'f8ho&pte=i&(vr-z0@2dw(z=4z&sg^o=30tjt)$v=lhd3j0dl*'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
+AWS_ACCESS_KEY_ID = 'AKIAJOH3PS44AUQX5SKA'
+AWS_SECRET_ACCESS_KEY = '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'

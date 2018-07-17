@@ -105,7 +105,7 @@ class Player(BasePlayer):
     c40 = models.StringField(widget=widgets.RadioSelectHorizontal, choices=["Yes", "No"])
     c45 = models.StringField(widget=widgets.RadioSelectHorizontal, choices=["Yes", "No"])
     c50 = models.StringField(widget=widgets.RadioSelectHorizontal, choices=["Yes", "No"])
-
+    
     # arrival times
     time_ChooseFirm = models.StringField()
     time_Instructions1 = models.StringField()
