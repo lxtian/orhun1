@@ -94,9 +94,13 @@ class Player(BasePlayer):
     time_Survey10 = models.StringField()
     time_Survey12 = models.StringField()
 
-    
-    q7 = models.LongStringField(label='You chose Firm A/B in the first contest. \
-        If given the choice again would you still choose Firm A/B or would you change your choice? Why?')
+    q7_choice = models.StringField(
+        widget=widgets.RadioSelect,
+        choices=['Yes', 'No'],
+        label='You chose Firm A/B in the first contest. \
+        If given the choice again would you still choose Firm A/B or would you change your choice?')
+
+    q7 = models.LongStringField(label='Why?')
     q8 = models.StringField(
         widget=widgets.RadioSelect,
         choices=['Won', 'Came Second', 'Lost'],

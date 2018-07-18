@@ -12,10 +12,6 @@ class Game1WaitPage(WaitPage):
     def after_all_players_arrive(self):
         pass
 
-
-class General(Page):
-    timeout_seconds = 120
-
 # one player in each group chooses firm A or firm B
 class ChooseFirm(Page):
     form_model = 'player'
@@ -108,8 +104,10 @@ class Results1WaitPage(WaitPage):
                 players[i].participant.vars['game1_rank'] = i + 1
                 players[i].game1_bonus = 2 - i
                 players[i].participant.vars['game1_bonus'] = 2 - i
-                players[i].participant.payoff += players[i].game1_bonus
-                players[i].payoff = c(2 - i)
+                if i == 0:
+                    players[i].participant.payoff += 2.5
+                else:
+                    players[i].participant.payoff += c(2 - i)
 
 # game 1 results
 class Results1(Page):
@@ -165,7 +163,6 @@ class Survey_group(Page):
 
 
 page_sequence = [
-    General,
     Game1WaitPage,
     ChooseFirm,
     #Survey4,

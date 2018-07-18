@@ -55,6 +55,8 @@ class Survey1(Page):
     form_model = 'player'
     form_fields = ['time_Survey1', 'q1']
 
+class General_1(Page):
+    timeout_seconds = 120
 
 # sequence in which pages are displayed
 page_sequence = [
@@ -62,5 +64,6 @@ page_sequence = [
     Instructions,
     Baseline,
     ResultsBL,
-    Survey1
+    Survey1,
+    General_1
 ]

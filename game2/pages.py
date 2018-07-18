@@ -72,8 +72,10 @@ class Results2WaitPage(WaitPage):
             else:
                 players[i].game2_rank = i + 1
                 players[i].game2_bonus = 2 - i
-                players[i].participant.payoff += players[i].game2_bonus
-                players[i].payoff = c(2 - i)
+                if i == 0:
+                    players[i].participant.payoff += 2.5
+                else:
+                    players[i].payoff = c(2 - i)
 
 
 # game 2 results
@@ -139,7 +141,7 @@ class Results(Page):
 
 class Survey7(Page):
     form_model = 'player'
-    form_fields = ['time_Survey7', 'q7']
+    form_fields = ['time_Survey7', 'q7_choice', 'q7']
 
     def is_displayed(self):
         return self.player.participant.vars['choice'] == 1 and self.player.id_in_group == 1
