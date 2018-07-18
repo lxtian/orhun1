@@ -66,7 +66,7 @@ SESSION_CONFIGS = [
        'name': 'pilot',
        'display_name': 'pilot',
        'num_demo_participants': 6,
-       'app_sequence': ['baseline', 'waitpage', 'game1'],
+       'app_sequence': ['baseline', 'game1'],
        'lower_bound': 0,
        'upper_bound': 25,
        'min_players': 6,

@@ -7,7 +7,7 @@ from django.conf import settings
 
 # wait page before game 1
 class Game1WaitPage(WaitPage):
-    #group_by_arrival_time = True
+    group_by_arrival_time = True
     
     def after_all_players_arrive(self):
         pass
