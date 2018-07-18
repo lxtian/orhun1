@@ -65,11 +65,11 @@ SESSION_CONFIGS = [
     {
        'name': 'pilot',
        'display_name': 'pilot',
-       'num_demo_participants': 6,
+       'num_demo_participants': 3,
        'app_sequence': ['baseline', 'game1'],
        'lower_bound': 0,
        'upper_bound': 25,
-       'min_players': 6,
+       'min_players': 3,
        'time_limit': 5
     },
 ]
