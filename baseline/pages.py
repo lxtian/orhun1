@@ -5,6 +5,11 @@ import inflect
 from django.conf import settings
 
 # overall instructions & baseline instructions
+
+class General(Page):
+    timeout_seconds = 60
+
+
 class Instructions(Page):
     form_model = 'player'
     form_fields = ['time_Instructions']
@@ -13,7 +18,7 @@ class Instructions(Page):
 # baseline task
 class Baseline(Page):
     form_model = 'player'
-    form_fields = ['baseline_score', 'attempted', 'time_Baseline', 'credit']
+    form_fields = ['baseline_score', 'attempted', 'time_Baseline']
 
     # timer until page automatically submits itself
     timeout_seconds = settings.SESSION_CONFIGS[0]['time_limit']
@@ -29,7 +34,7 @@ class Baseline(Page):
     def before_next_page(self):
         self.player.participant.vars['baseline_attempted'] = self.player.attempted
         self.player.participant.vars['baseline_score'] = self.player.baseline_score
-        self.player.participant.vars['credit'] = self.player.credit
+        self.participant.payoff = 0.5 * self.player.baseline_score
 
 # baseline results
 class ResultsBL(Page):
@@ -42,9 +47,8 @@ class ResultsBL(Page):
         return {
             'attempted': self.player.attempted,
             'correct': self.player.baseline_score,
-
+            'payment': self.participant.payoff
             # automoatically pluralizes the word 'problem' if necessary
-            'problems': inflect.engine().plural('problem', self.player.attempted)
         }
 
 class Survey1(Page):
@@ -54,6 +58,7 @@ class Survey1(Page):
 
 # sequence in which pages are displayed
 page_sequence = [
+    General,
     Instructions,
     Baseline,
     ResultsBL,

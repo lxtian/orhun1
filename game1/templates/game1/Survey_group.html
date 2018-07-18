@@ -17,9 +17,16 @@
     Survey
 {% endblock %}
 
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <br>
-        Why did you choose this firm?
+        Before you start the contest, please explain why you chose Firm A/B.
     <br>
     <textarea name="q6" cols="40" rows="10" required="true"></textarea>
     {% next_button %}

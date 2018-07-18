@@ -72,7 +72,6 @@ class Player(BasePlayer):
     
     # number of problems attempted
     attempted = models.IntegerField()
-    credit = models.FloatField()
     # arrival times
     time_Instructions = models.StringField()
     time_Baseline = models.StringField()

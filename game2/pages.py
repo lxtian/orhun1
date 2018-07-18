@@ -72,6 +72,7 @@ class Results2WaitPage(WaitPage):
             else:
                 players[i].game2_rank = i + 1
                 players[i].game2_bonus = 2 - i
+                players[i].participant.payoff += players[i].game2_bonus
                 players[i].payoff = c(2 - i)
 
 
@@ -133,7 +134,7 @@ class Results(Page):
             'g2_problems': g2_problems,
             'g2_rank': g2_rank,
             'g2_bonus': g2_bonus,
-            'total_bonus': g1_bonus + g2_bonus
+            'total_bonus': self.participant.payoff
         }
 
 class Survey7(Page):
