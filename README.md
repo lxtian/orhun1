@@ -7,7 +7,6 @@ To begin:
 Notes:
 =============
 
-    - I do not have time to finish the survey. 
     Question 1 is implemented, along with questions 6-12 (5-11 in
     the email, I understand why you duplicated #4 but for the purpose of returning form fields they
     need different names).
@@ -132,8 +131,6 @@ Overview:
 
 License
 ===============
-
-Copyright 2018 Eli Pandolfo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
